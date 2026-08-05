@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tea Garden of Assam</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* Blurred Background */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:url() center center/cover no-repeat;
+    filter:blur(8px);
+    transform:scale(1.1);
+    z-index:-2;
+}
+
+/* Dark overlay */
+body::after{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+    z-index:-1;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#1b5e20,#66bb6a);
+color:white;
+}
+
+header{
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.2);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+}
+
+select{
+padding:10px;
+font-size:16px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.hero{
+padding:70px 10%;
+text-align:center;
+}
+
+.hero h1{
+font-size:45px;
+margin-bottom:20px;
+animation:fade 1s;
+}
+
+.hero p{
+font-size:20px;
+line-height:1.8;
+animation:fade 2s;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+padding:30px 0 50px;
+}
+
+.card{
+background:white;
+color:#333;
+padding:20px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+margin-bottom:10px;
+color:#2e7d32;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,.2);
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="logo" id="logo">
+Tea Garden
+</div>
+
+<select id="language" onchange="changeLanguage()">
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+<option value="as">Assamese</option>
+<option value="bn">Bengali</option>
+<option value="fr">French</option>
+<option value="es">Spanish</option>
+</select>
+
+</header>
+
+<section class="hero">
+
+<h1 id="title">
+Welcome to Assam Tea Garden
+</h1>
+
+<p id="description">
+Assam is famous for producing one of the finest teas in the world. 
+The lush green tea gardens attract tourists from different countries and play an important role in India's economy.
+
+</p>
+
+</section>
+
+<div class="container">
+
+<div class="card">
+<h2 id="c1title">History</h2>
+<p id="c1text">
+Tea cultivation in Assam began during the British period and later became one of the world's largest tea industries.
+</p>
+</div>
+
+<div class="card">
+<h2 id="c2title">Importance</h2>
+<p id="c2text">
+Tea contributes to employment, tourism, exports and economic growth while supporting millions of workers.
+</p>
+</div>
+
+<div class="card">
+<h2 id="c3title">Tourism</h2>
+<p id="c3text">
+Visitors enjoy beautiful landscapes, tea tasting, cultural experiences and peaceful natural surroundings.
+</p>
+</div>
+
+</div>
+
+<footer id="footer">
+</footer>
+
+<script>
+
+const translations = {
+
+en:{
+logo:"Tea Garden",
+title:"Welcome to Assam Tea Garden",
+description:"Assam is famous for producing one of the finest teas in the world. The lush green tea gardens attract tourists from different countries and play an important role in India's economy.",
+c1title:"History",
+c1text:"Tea cultivation in Assam began during the British period and later became one of the world's largest tea industries.",
+c2title:"Importance",
+c2text:"Tea contributes to employment, tourism, exports and economic growth while supporting millions of workers.",
+c3title:"Tourism",
+c3text:"Visitors enjoy beautiful landscapes, tea tasting, cultural experiences and peaceful natural surroundings.",
+},
+
+hi:{
+logo:"चाय बागान",
+title:"असम के चाय बागान में आपका स्वागत है",
+description:"असम दुनिया की बेहतरीन चाय के लिए प्रसिद्ध है। यहाँ के हरे-भरे चाय बागान दुनिया भर के पर्यटकों को आकर्षित करते हैं।",
+c1title:"इतिहास",
+c1text:"असम में चाय की खेती ब्रिटिश काल में शुरू हुई और बाद में यह दुनिया के सबसे बड़े उद्योगों में से एक बन गई।",
+c2title:"महत्व",
+c2text:"चाय उद्योग रोजगार, पर्यटन, निर्यात और आर्थिक विकास में महत्वपूर्ण योगदान देता है।",
+c3title:"पर्यटन",
+c3text:"पर्यटक प्राकृतिक सुंदरता, चाय चखने और स्थानीय संस्कृति का आनंद लेते हैं।",
+},
+
+as:{
+logo:"চাহ বাগিছা",
+title:"অসমৰ চাহ বাগিছালৈ স্বাগতম",
+description:"অসম বিশ্ববিখ্যাত চাহ উৎপাদনৰ বাবে জনাজাত। সেউজীয়া চাহ বাগিছাই বহু পৰ্যটকক আকৰ্ষণ কৰে।",
+c1title:"ইতিহাস",
+c1text:"ব্ৰিটিছ যুগত অসমত চাহ খেতি আৰম্ভ হৈছিল আৰু পিছত বিশ্বৰ অন্যতম ডাঙৰ উদ্যোগ হৈ উঠে।",
+c2title:"গুৰুত্ব",
+c2text:"চাহ উদ্যোগে লাখ লাখ লোকক কৰ্মসংস্থান দিয়ে আৰু অৰ্থনীতিত গুৰুত্বপূৰ্ণ ভূমিকা পালন কৰে।",
+c3title:"পৰ্যটন",
+c3text:"দৰ্শনাৰ্থীয়ে প্ৰাকৃতিক সৌন্দৰ্য, চাহৰ সোৱাদ আৰু সংস্কৃতি উপভোগ কৰে।",
+},
+
+bn:{
+logo:"চা বাগান",
+title:"আসামের চা বাগানে স্বাগতম",
+description:"আসাম বিশ্বের অন্যতম সেরা চায়ের জন্য বিখ্যাত।",
+c1title:"ইতিহাস",
+c1text:"ব্রিটিশ আমলে আসামে চা চাষ শুরু হয়।",
+c2title:"গুরুত্ব",
+c2text:"চা শিল্প কর্মসংস্থান ও অর্থনীতিতে গুরুত্বপূর্ণ ভূমিকা রাখে।",
+c3title:"পর্যটন",
+c3text:"সবুজ প্রকৃতি ও চা বাগান পর্যটকদের আকর্ষণ করে।",
+},
+
+fr:{
+logo:"Jardin de Thé",
+title:"Bienvenue au Jardin de Thé d'Assam",
+description:"L'Assam est célèbre pour produire l'un des meilleurs thés du monde.",
+c1title:"Histoire",
+c1text:"La culture du thé a commencé pendant la période britannique.",
+c2title:"Importance",
+c2text:"L'industrie du thé soutient l'économie et le tourisme.",
+c3title:"Tourisme",
+c3text:"Les visiteurs profitent de magnifiques paysages et de la culture locale.",
+},
+
+es:{
+logo:"Jardín de Té",
+title:"Bienvenido al Jardín de Té de Assam",
+description:"Assam es famoso por producir uno de los mejores tés del mundo.",
+c1title:"Historia",
+c1text:"El cultivo del té comenzó durante el período británico.",
+c2title:"Importancia",
+c2text:"La industria del té apoya la economía y el turismo.",
+c3title:"Turismo",
+c3text:"Los visitantes disfrutan de hermosos paisajes y cultura.",
+}
+
+};
+
+function changeLanguage(){
+
+let lang=document.getElementById("language").value;
+
+document.getElementById("logo").innerHTML=translations[lang].logo;
+document.getElementById("title").innerHTML=translations[lang].title;
+document.getElementById("description").innerHTML=translations[lang].description;
+document.getElementById("c1title").innerHTML=translations[lang].c1title;
+document.getElementById("c1text").innerHTML=translations[lang].c1text;
+document.getElementById("c2title").innerHTML=translations[lang].c2title;
+document.getElementById("c2text").innerHTML=translations[lang].c2text;
+document.getElementById("c3title").innerHTML=translations[lang].c3title;
+document.getElementById("c3text").innerHTML=translations[lang].c3text;
+document.getElementById("footer").innerHTML=translations[lang].footer;
+
+}
+
+</script>
+
+</body>
+</html>
